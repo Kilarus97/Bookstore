@@ -11,7 +11,7 @@ const Header = () => {
           <li><Link to="/">Početna</Link></li>
           <li><Link to="/publishers">Publishers</Link></li>
           <li><Link to="/books">Books</Link></li>
-          <li><Link to="/create-movie">Create book</Link></li>
+          <li><Link to="/create-book">Add new Book</Link></li>
         </ul>
       </nav>
     </header>

@@ -1,9 +1,11 @@
 import React from "react";
 import "../../styles/main.scss";
-
+import { useNavigate } from "react-router-dom";
 
 
 const BooksTable = ({ books, onDelete }) => {
+  const navigate = useNavigate();
+
     return (
         <table className="books-table">
       <thead>
@@ -34,6 +36,9 @@ const BooksTable = ({ books, onDelete }) => {
             </td>
             <td>
             <button onClick={() => onDelete(book.id)}>Izbriši</button>
+            </td>
+            <td>
+            <button onClick={() => navigate(`/edit-book/${book.id}`)}>Izmeni</button>
             </td>
           </tr>
         ))}
