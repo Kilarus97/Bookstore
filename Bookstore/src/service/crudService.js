@@ -26,3 +26,28 @@ export async function deletePublisher(id) {
   const response = await AxiosConfig.delete(`/publishers/${id}`);
   return response.data;
 }
+
+export async function getAllBooks() {
+  const response = await AxiosConfig.get('/books/');
+  return response.data;
+}
+
+export async function getBookById(id) {
+  const response = await AxiosConfig.get(`/books/${id}`);
+  return response.data;
+}
+
+export async function createBook(productData) {
+  const response = await AxiosConfig.post("/books/", productData);
+  return response.data;
+}
+
+export async function updateBook(id, productData) {
+  const response = await AxiosConfig.put(`/books/${id}`, productData);
+  return response.data;
+}
+
+export async function deleteBook(id) {
+  const response = await AxiosConfig.delete(`/books/${id}`);
+  return response.data;
+}

@@ -5,23 +5,17 @@ import * as crudService from "../../service/crudService.js"
 
 export default function PublishersPage() {
     const [publishers, setPublisher] = useState([]);
-
     const [error, setError] = useState(null);
 
 
-    
-
     const fetchPublishers = async () => {
         try {
-
           const response = await crudService.getAllPublishers();
           console.log(response)
           setPublisher(response);
         } catch (err) {
           setError("Greška pri dobavljanju izdavaca");
           console.error(err);
-        } finally {
-
         }
       };
 
@@ -32,7 +26,7 @@ export default function PublishersPage() {
 
       return (
         <div>
-        <h2>Repertoar filmova</h2>
+        <h2>Lista izdavaca</h2>
     
         <PublisherTable
             users={publishers}

@@ -1,0 +1,45 @@
+import React from "react";
+import "../../styles/main.scss";
+
+
+
+const BooksTable = ({ books, onDelete }) => {
+    return (
+        <table className="books-table">
+      <thead>
+        <tr>
+          <th>Naslov</th>
+          <th>Broj strana</th>
+          <th>Datum objavljivanja</th>
+          <th>ISBN</th>
+          <th>Autor</th>
+          <th>Izdavač</th>
+          <th>Web sajt</th>
+          <th>Akcije</th>
+        </tr>
+      </thead>
+      <tbody>
+        {books.map(book => (
+          <tr key={book.id}>
+            <td>{book.title}</td>
+            <td>{book.pageCount}</td>
+            <td>{new Date(book.publishedDate).toLocaleDateString()}</td>
+            <td>{book.isbn}</td>
+            <td>{book.author?.fullName}</td>
+            <td>{book.publisher?.name}</td>
+            <td>
+              <a href={book.publisher?.website} target="_blank" rel="noopener noreferrer">
+                {book.publisher?.website}
+              </a>
+            </td>
+            <td>
+            <button onClick={() => onDelete(book.id)}>Izbriši</button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    );
+  };
+
+export default BooksTable;

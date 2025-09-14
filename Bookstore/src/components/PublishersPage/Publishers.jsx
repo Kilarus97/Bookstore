@@ -5,7 +5,7 @@ import "../../styles/main.scss";
 
 const PublisherTable = ({ users }) => {
     return (
-      <table>
+      <table className="publisherTable">
         <thead>
           <tr>
             <th>Name</th>
