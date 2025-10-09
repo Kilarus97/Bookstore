@@ -12,6 +12,12 @@ export async function getPublisherById(id) {
   return response.data;
 }
 
+export async function getSortedPublishers(sortType) {
+  const response = await AxiosConfig.get(`/publishers/sorted?sortType=${sortType}`);
+  return response.data;
+}
+
+
 export async function createPublisher(productData) {
   const response = await AxiosConfig.post("/publishers/", productData);
   return response.data;
