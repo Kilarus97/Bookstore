@@ -51,3 +51,8 @@ export async function deleteBook(id) {
   const response = await AxiosConfig.delete(`/books/${id}`);
   return response.data;
 }
+
+export async function getAllAuthors(pageIndex = 0, pageSize = 10) {
+  const response = await AxiosConfig.get(`/Authors/paginated?pageIndex=${pageIndex}&pageSize=${pageSize}`);
+  return response.data;
+}

@@ -6,6 +6,7 @@ import PublishersPage from "./components/PublishersPage/PublishersRender&HTTP.js
 import BooksPage from "./components/BooksPage/BooksRender&HTTP.jsx";
 import CreateBookPage from "./components/BookCreation&EditForm/CreateBookPage.jsx";
 import EditBookPage from "./components/BookCreation&EditForm/EditBookPage.jsx";
+import AuthorsPage from "./components/AuthorsPage/AuthorsPage.jsx";
 
 const AppRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const AppRoutes = () => {
       <Route path="/books" element={<BooksPage />} />
       <Route path="/create-book" element={<CreateBookPage/>} />
       <Route path="/edit-book/:id" element={<EditBookPage />} />
+      <Route path="/authors" element={<AuthorsPage />} />
     </Routes>
   );
 };
