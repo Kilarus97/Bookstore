@@ -48,6 +48,12 @@ export async function getSortedBookDetails(sortType) {
   return response.data;
 }
 
+export async function searchBooks(payload) {
+  const response = await AxiosConfig.post("/books/details/search", payload);
+  return response.data;
+}
+
+
 export async function createBook(productData) {
   const response = await AxiosConfig.post("/books/", productData);
   return response.data;
