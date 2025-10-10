@@ -43,6 +43,11 @@ export async function getBookById(id) {
   return response.data;
 }
 
+export async function getSortedBookDetails(sortType) {
+  const response = await AxiosConfig.get(`/books/details/sorted?sortType=${sortType}`);
+  return response.data;
+}
+
 export async function createBook(productData) {
   const response = await AxiosConfig.post("/books/", productData);
   return response.data;

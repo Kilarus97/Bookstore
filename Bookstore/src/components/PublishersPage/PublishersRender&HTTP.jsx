@@ -29,9 +29,9 @@ export default function PublishersPage() {
     <div>
       <h2>Lista izdavača</h2>
 
-      <label htmlFor="sort-select">Sortiraj po:</label>
+      <label htmlFor="publisherSort">Sortiraj po:</label>
       <select
-        id="sort-select"
+        className = "publisherSort"
         value={sortType}
         onChange={e => setSortType(e.target.value)}
         style={{ marginLeft: "0.5rem", marginBottom: "1rem" }}

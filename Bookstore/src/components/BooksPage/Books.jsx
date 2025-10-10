@@ -26,8 +26,8 @@ const BooksTable = ({ books, onDelete }) => {
             <td>{book.pageCount}</td>
             <td>{new Date(book.publishedDate).toLocaleDateString()}</td>
             <td>{book.isbn}</td>
-            <td>{book.author}</td>
-            <td>{book.publisher}</td>
+            <td>{book.authorFullName}</td>
+            <td>{book.publisherName}</td>
             <td>
               <a href={book.website} target="_blank" rel="noopener noreferrer">
                 {book.website}

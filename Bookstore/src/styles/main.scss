@@ -123,6 +123,13 @@ img {
     }
 }
 
+.bookSort, .publisherSort {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
 .books-table , .publisherTable , .authors-table {
   width: 100%;
   border-collapse: collapse;
