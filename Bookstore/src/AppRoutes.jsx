@@ -7,6 +7,8 @@ import BooksPage from "./components/BooksPage/BooksRender&HTTP.jsx";
 import CreateBookPage from "./components/BookCreation&EditForm/CreateBookPage.jsx";
 import EditBookPage from "./components/BookCreation&EditForm/EditBookPage.jsx";
 import AuthorsPage from "./components/AuthorsPage/AuthorsPage.jsx";
+import LoginPage from "./components/Login&Register/LoginForm.jsx";
+import RegisterPage from "./components/Login&Register/RegisterForm.jsx";
 
 const AppRoutes = () => {
   return (
@@ -17,6 +19,8 @@ const AppRoutes = () => {
       <Route path="/create-book" element={<CreateBookPage/>} />
       <Route path="/edit-book/:id" element={<EditBookPage />} />
       <Route path="/authors" element={<AuthorsPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
     </Routes>
   );
 };

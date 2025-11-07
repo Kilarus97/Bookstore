@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../../styles/main.scss";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthContext.jsx";
 
 const BooksTable = ({ books, onDelete }) => {
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+
+  const isEditor = user && user.role === "Editor";
 
   return (
     <table className="books-table">
@@ -16,7 +20,7 @@ const BooksTable = ({ books, onDelete }) => {
           <th>Autor</th>
           <th>Izdavač</th>
           <th>Web sajt</th>
-          <th>Akcije</th>
+          {isEditor && <th>Akcije</th>}
         </tr>
       </thead>
       <tbody>
@@ -33,12 +37,16 @@ const BooksTable = ({ books, onDelete }) => {
                 {book.website}
               </a>
             </td>
-            <td>
-              <button onClick={() => onDelete(book.id)}>Izbriši</button>
-            </td>
-            <td>
-              <button onClick={() => navigate(`/edit-book/${book.id}`)}>Izmeni</button>
-            </td>
+            {isEditor && (
+              <>
+                <td>
+                  <button onClick={() => onDelete(book.id)}>Izbriši</button>
+                </td>
+                <td>
+                  <button onClick={() => navigate(`/edit-book/${book.id}`)}>Izmeni</button>
+                </td>
+              </>
+            )}
           </tr>
         ))}
       </tbody>

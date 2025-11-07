@@ -123,6 +123,20 @@ img {
     }
 }
 
+.logout-button {
+  margin-left: auto;
+  background-color: darken($primary-color, 10%);
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+      background-color: darken($primary-color, 15%);
+  }
+}
+
 .bookSort, .publisherSort {
   margin-bottom: 10px;
   padding: 5px;

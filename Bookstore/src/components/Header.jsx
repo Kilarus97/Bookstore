@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthContext.jsx";
 import "../styles/main.scss";
 
 const Header = () => {
+  const { isAuthenticated, logout } = useContext(AuthContext);
+
   return (
-    <header className="header">
+    <header className="header"> 
       <h1>Dobrodošli — Neoplanta Bookstore</h1>
       <nav>
         <ul className="nav-list">
@@ -13,6 +16,17 @@ const Header = () => {
           <li><Link to="/books">Books</Link></li>
           <li><Link to="/authors">Authors</Link></li>
           <li><Link to="/create-book">Add new Book</Link></li>
+
+          {!isAuthenticated ? (
+            <>
+              <li><Link to="/register">Register</Link></li>
+              <li><Link to="/login">Login</Link></li>
+            </>
+          ) : (
+            <li>
+              <button onClick={logout} className="logout-btn">Logout</button>
+            </li>
+          )}
         </ul>
       </nav>
     </header>
