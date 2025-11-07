@@ -3,6 +3,7 @@ import "../../styles/register.scss";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthContext";
 import * as authService from "../../service/auth.services.jsx";
+import GoogleLogin from "./GoogleLogin.jsx";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -71,6 +72,11 @@ const LoginForm = () => {
           Prijavi se
         </button>
       </section>
+
+      <div>
+      <h2>Prijavise pomocu Google Naloga</h2>
+      <GoogleLogin />
+      </div>
 
       <div
         id="form-feedback"
