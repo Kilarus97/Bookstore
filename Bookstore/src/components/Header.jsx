@@ -4,7 +4,7 @@ import { AuthContext } from "../AuthContext.jsx";
 import "../styles/main.scss";
 
 const Header = () => {
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const { isEditor,isAuthenticated, logout } = useContext(AuthContext);
 
   return (
     <header className="header"> 
@@ -16,6 +16,13 @@ const Header = () => {
           <li><Link to="/books">Books</Link></li>
           <li><Link to="/authors">Authors</Link></li>
           <li><Link to="/create-book">Add new Book</Link></li>
+
+          {!isEditor ? null : (
+            <>
+              <li><Link to="/volumes">Pretraga tomova</Link></li>
+              <li><Link to="/issues">Pretraga izdanja</Link></li>
+            </>
+          )}
 
           {!isAuthenticated ? (
             <>

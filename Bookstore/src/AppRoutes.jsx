@@ -9,6 +9,8 @@ import EditBookPage from "./components/BookCreation&EditForm/EditBookPage.jsx";
 import AuthorsPage from "./components/AuthorsPage/AuthorsPage.jsx";
 import LoginPage from "./components/Login&Register/LoginForm.jsx";
 import RegisterPage from "./components/Login&Register/RegisterForm.jsx";
+import VolumeSearch from "./components/Comics/VolumeSearch.jsx";
+import IssueSearch from "./components/Comics/IssueSearch.jsx";
 
 const AppRoutes = () => {
   return (
@@ -19,6 +21,8 @@ const AppRoutes = () => {
       <Route path="/create-book" element={<CreateBookPage/>} />
       <Route path="/edit-book/:id" element={<EditBookPage />} />
       <Route path="/authors" element={<AuthorsPage />} />
+      <Route path="/volumes" element={<VolumeSearch />} />
+      <Route path="/issues" element={<IssueSearch />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
     </Routes>

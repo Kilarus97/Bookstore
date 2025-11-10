@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthContext";
 import { jwtDecode } from "jwt-decode";
 
 const GoogleLogin = () => {
   const buttonRef = useRef(null);
   const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!window.google) {
@@ -17,8 +19,10 @@ const GoogleLogin = () => {
       callback: (response) => {
         const idToken = response.credential;
         const decoded = jwtDecode(idToken);
-        console.log("Decoded Google user:", decoded);
-        login(idToken);
+        console.log("✅ Google user decoded:", decoded);
+
+        login(idToken); // ⬅️ čuva token u context/localStorage
+        navigate("/books"); // ⬅️ automatski preusmerenje
       },
     });
 
@@ -28,7 +32,7 @@ const GoogleLogin = () => {
         size: "large",
       });
     }
-  }, [login]);
+  }, [login, navigate]);
 
   return <div ref={buttonRef}></div>;
 };
