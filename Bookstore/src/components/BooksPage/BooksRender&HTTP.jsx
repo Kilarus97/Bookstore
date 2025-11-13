@@ -14,13 +14,14 @@ export default function BooksPage() {
     const [bornFrom, setBornFrom] = useState("");
     const [bornTo, setBornTo] = useState("");
     const [authors, setAuthors] = useState([]);
+    const [refresh, setRefresh] = useState(0);
 
 
     useEffect(() => {
         crudService.getSortedBookDetails(sortType)
           .then(res => setBooks(res.$values || []))
           .catch(err => console.error("Greška pri učitavanju knjiga:", err));
-      }, [sortType]);
+      }, [sortType,refresh]);
       
 
     useEffect(() => {
@@ -147,7 +148,11 @@ export default function BooksPage() {
 
             <h2>Knjige koje su trenutno u ponudi</h2>
             {error && <p className="error">{error}</p>}
-            <BooksTable books={books} onDelete={deleteBooks} />
+            <BooksTable
+            books={books}
+            onDelete={deleteBooks}
+            triggerRefresh={() => setRefresh(prev => prev + 1)}
+            />
         </div>
     );
 }

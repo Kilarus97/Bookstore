@@ -15,7 +15,7 @@ import IssueSearch from "./components/Comics/IssueSearch.jsx";
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/publishers" element={<PublishersPage />} />
       <Route path="/books" element={<BooksPage />} />
       <Route path="/create-book" element={<CreateBookPage/>} />
